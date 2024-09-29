@@ -13,4 +13,8 @@ public class HelloService {
     public Hello getFirst() {
         return this.helloRepository.findFirst().orElseThrow(() -> new RuntimeException("first not found"));
     }
+
+    public void addHello(Hello hello) {
+        helloRepository.save(hello);
+    }
 }
