@@ -1,3 +1,13 @@
 spring:
   application:
     name: poco-project
+  datasource:
+    url: jdbc:postgresql://localhost:5432/poco_app
+    username: poco
+    password: poco
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
