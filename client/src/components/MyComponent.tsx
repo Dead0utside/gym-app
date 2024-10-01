@@ -23,11 +23,10 @@ function MyComponent() {
   // }, []);
 
   useEffect(() => {
-    console.log(GET_URL);
     fetch(`${GET_URL}`)
-    // .then(response => response.json)
-    .then(responseJson => console.log(responseJson));
-    setHello("hello");
+    // .then(response => response.json())
+    .then(response => console.log(response))
+    // .then(responseJson => setHello(responseJson.message));
   }, []);
 
   return (
