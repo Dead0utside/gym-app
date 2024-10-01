@@ -6,12 +6,7 @@ import jakarta.persistence.*;
 @Table(name = "exercise")
 public class Exercise {
     @Id
-    @SequenceGenerator(
-            name = "exercise_id_sequence",
-            sequenceName = "exercise_id_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "exercise_id_sequence")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false, updatable = false)
     private Long id;
 
