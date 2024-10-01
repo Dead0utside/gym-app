@@ -1,4 +1,3 @@
-import fetch from 'node-fetch';
 import { useState, useEffect } from 'react';
 
 const GET_URL = "http://localhost:8080/api/v1/hello/first";
@@ -8,7 +7,7 @@ interface HelloObject {
 }
 
 function MyComponent() {
-  const [hello, setHello] = useState("");
+  const [hello, setHello] = useState("j");
 
   // useEffect(() => {
   //   const fetchHello = async () => {
@@ -24,9 +23,11 @@ function MyComponent() {
   // }, []);
 
   useEffect(() => {
+    console.log(GET_URL);
     fetch(`${GET_URL}`)
-    .then(response => response.json)
+    // .then(response => response.json)
     .then(responseJson => console.log(responseJson));
+    setHello("hello");
   }, []);
 
   return (
