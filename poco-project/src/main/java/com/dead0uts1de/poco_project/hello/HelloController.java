@@ -15,7 +15,7 @@ public class HelloController {
 
     @GetMapping(path = "/first")
     public ResponseEntity<Hello> getFirst() {
-        return new ResponseEntity<>(helloService.getFirst(), HttpStatus.OK);
+        return ResponseEntity.ok().header("Access-Control-Allow-Origin", "*").body(helloService.getFirst());
     }
 
     @PostMapping(path = "/add")
