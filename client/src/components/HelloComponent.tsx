@@ -16,12 +16,6 @@ function MyComponent() {
     fetchHello();
   }, []);
 
-  // useEffect(() => {
-  //   fetch(`${GET_URL}`)
-  //   .then(response => response.json())
-  //   .then(responseJson => setHello(responseJson.message));
-  // }, []);
-
   return (
     <div>{hello}</div>
   )

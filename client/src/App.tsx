@@ -1,5 +1,5 @@
 // import './App.css'
-import MyComponent from './components/MyComponent.tsx'
+import MyComponent from './components/HelloComponent.tsx'
 
 function App() {
   return (
