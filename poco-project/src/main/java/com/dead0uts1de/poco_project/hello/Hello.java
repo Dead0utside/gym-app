@@ -1,29 +1,28 @@
 package com.dead0uts1de.poco_project.hello;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "hello")
+@NoArgsConstructor
+@AllArgsConstructor
 public class Hello {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Getter
     private Long id;
 
     @Column(name = "message")
+    @Getter
+    @Setter
     private String message;
-
-    public Hello() {
-    }
 
     public Hello(String message) {
         this.message = message;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public String getMessage() {
-        return message;
-    }
 }
