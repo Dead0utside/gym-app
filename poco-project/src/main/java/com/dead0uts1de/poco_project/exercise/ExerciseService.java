@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public class ExerciseService {
     private final ExerciseRepository exerciseRepository;
 
-    public Exercise findExerciseById(Long id) {
+    public Exercise getExerciseById(Long id) {
         return exerciseRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Exercise with id " + id + " not found"));
     }
