@@ -1,5 +1,6 @@
 package com.dead0uts1de.pocoProject.exercise;
 
+import com.dead0uts1de.pocoProject.config.CustomResponseEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -12,10 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ExerciseController {
     private final ExerciseService exerciseService;
 
-    @Value("${corsHeader}")
-    private String corsHeader;
-
-    public ResponseEntity<Exercise> getExerciseById(Long id) {
+    public CustomResponseEntity getExerciseById(Long id) {
         return null;
     }
 }
