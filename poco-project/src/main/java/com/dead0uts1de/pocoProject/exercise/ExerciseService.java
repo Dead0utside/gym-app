@@ -1,4 +1,4 @@
-package com.dead0uts1de.poco_project.exercise;
+package com.dead0uts1de.pocoProject.exercise;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

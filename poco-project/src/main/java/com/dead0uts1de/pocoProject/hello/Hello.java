@@ -1,4 +1,4 @@
-package com.dead0uts1de.poco_project.hello;
+package com.dead0uts1de.pocoProject.hello;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

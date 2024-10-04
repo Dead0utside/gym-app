@@ -1,4 +1,4 @@
-package com.dead0uts1de.poco_project.exercise;
+package com.dead0uts1de.pocoProject.exercise;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

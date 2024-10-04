@@ -1,4 +1,4 @@
-package com.dead0uts1de.poco_project;
+package com.dead0uts1de.pocoProject;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

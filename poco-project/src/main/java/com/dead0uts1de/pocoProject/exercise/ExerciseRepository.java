@@ -1,4 +1,4 @@
-package com.dead0uts1de.poco_project.exercise;
+package com.dead0uts1de.pocoProject.exercise;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.lang.NonNull;

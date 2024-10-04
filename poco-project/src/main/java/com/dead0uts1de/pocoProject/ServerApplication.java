@@ -1,4 +1,4 @@
-package com.dead0uts1de.poco_project;
+package com.dead0uts1de.pocoProject;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
