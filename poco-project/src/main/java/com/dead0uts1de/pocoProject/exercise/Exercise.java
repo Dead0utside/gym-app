@@ -1,20 +1,15 @@
 package com.dead0uts1de.pocoProject.exercise;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
 @Table
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
 public class Exercise {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Setter
@@ -30,4 +25,10 @@ public class Exercise {
     @Setter
     private Integer reps;
 
+    public Exercise(String name, Float weight, Integer sets, Integer reps) {
+        this.name = name;
+        this.weight = weight;
+        this.sets = sets;
+        this.reps = reps;
+    }
 }
