@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@Getter
 @Entity
 @Table(name = "hello")
 @NoArgsConstructor
@@ -13,11 +14,9 @@ import lombok.Setter;
 public class Hello {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter
     private Long id;
 
     @Column(name = "message")
-    @Getter
     @Setter
     private String message;
 
