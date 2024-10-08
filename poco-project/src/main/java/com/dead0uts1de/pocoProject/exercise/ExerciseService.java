@@ -12,4 +12,8 @@ public class ExerciseService {
         return exerciseRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Exercise with id " + id + " not found"));
     }
+
+    public void addExercise(Exercise exercise) {
+        this.exerciseRepository.save(exercise);
+    }
 }
