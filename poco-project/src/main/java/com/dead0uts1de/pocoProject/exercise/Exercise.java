@@ -28,7 +28,12 @@ public class Exercise {
     @Setter
     private Integer reps;
 
-    @ManyToMany(mappedBy = "included_exercises")
+    @ManyToMany
+    @JoinTable(
+            name = "exercise_in_training",
+            joinColumns = @JoinColumn(name = "exercise_id"),
+            inverseJoinColumns = @JoinColumn(name = "training_id")
+    )
     private Set<Training> trainings;
 
     public Exercise(String name, Float weight, Integer sets, Integer reps) {
