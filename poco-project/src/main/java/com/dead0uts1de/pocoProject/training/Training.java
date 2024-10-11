@@ -20,10 +20,5 @@ public class Training {
     private String name;
 
     @ManyToMany
-    @JoinTable(
-            name = "training_to_exercise",
-            joinColumns = @JoinColumn(name = "training_id"),
-            inverseJoinColumns = @JoinColumn(name = "exercise_id")
-    )
     Set<Exercise> includedExercises;
 }
