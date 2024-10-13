@@ -4,6 +4,7 @@ import com.dead0uts1de.pocoProject.training.Training;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -28,7 +29,7 @@ public class Exercise {
     @Setter
     private Integer reps;
 
-    @ManyToMany(mappedBy = "included_exercises")
+    @ManyToMany(mappedBy = "includedExercises")
     private Set<Training> trainings;
 
     public Exercise(String name, Float weight, Integer sets, Integer reps) {
@@ -36,5 +37,6 @@ public class Exercise {
         this.weight = weight;
         this.sets = sets;
         this.reps = reps;
+        this.trainings = new HashSet<>();
     }
 }

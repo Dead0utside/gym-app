@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -25,5 +26,11 @@ public class Training {
             joinColumns = @JoinColumn(name = "training_id"),
             inverseJoinColumns = @JoinColumn(name = "exercise_id")
     )
-    Set<Exercise> includedExercises;
+    @Setter
+    private Set<Exercise> includedExercises;
+
+    public Training(String name) {
+        this.name = name;
+        this.includedExercises = new HashSet<>();
+    }
 }
