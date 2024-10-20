@@ -1,12 +1,14 @@
-// import './App.css'
-import MyComponent from './components/HelloComponent.tsx'
+import { Button } from "@/components/ui/button";
+import Sidebar from "@/components/elements/sidebar";
+
+Button;
 
 function App() {
-  return (
-    <>
-      <MyComponent></MyComponent>
-    </>
-  )
+	return (
+		<div className="app">
+			<Sidebar></Sidebar>
+		</div>
+	);
 }
 
-export default App
+export default App;

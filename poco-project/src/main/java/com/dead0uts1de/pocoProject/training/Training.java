@@ -1,6 +1,7 @@
 package com.dead0uts1de.pocoProject.training;
 
 import com.dead0uts1de.pocoProject.exercise.Exercise;
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,6 +20,10 @@ public class Training {
 
     @Setter
     private String name;
+
+    @Nullable
+    @Setter
+    private String description;
 
     @ManyToMany
     @JoinTable(
