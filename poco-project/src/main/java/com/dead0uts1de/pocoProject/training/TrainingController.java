@@ -35,9 +35,7 @@ public class TrainingController {
 
     @GetMapping(path = "/get")
     public ResponseEntity<List<Training>> getAllTrainings() {
-        return ResponseEntity.ok()
-                .header("Access-Control-Allow-Origin", "*")
-                .body(trainingService.getAllTrainings());
+        return new ResponseEntity<>(trainingService.getAllTrainings(), headers, HttpStatus.OK);
     }
 
     @PostMapping(path = "/add")
