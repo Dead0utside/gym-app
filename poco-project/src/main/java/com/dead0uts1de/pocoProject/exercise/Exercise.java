@@ -4,8 +4,8 @@ import com.dead0uts1de.pocoProject.training.Training;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table
@@ -30,13 +30,13 @@ public class Exercise {
     private Integer reps;
 
     @ManyToMany(mappedBy = "includedExercises")
-    private Set<Training> trainings;
+    private List<Training> trainings;
 
     public Exercise(String name, Float weight, Integer sets, Integer reps) {
         this.name = name;
         this.weight = weight;
         this.sets = sets;
         this.reps = reps;
-        this.trainings = new HashSet<>();
+        this.trainings = new ArrayList<>();
     }
 }
