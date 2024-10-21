@@ -14,7 +14,7 @@ import java.util.List;
 @RequestMapping("/api/v1/training")
 public class TrainingController {
     private final TrainingService trainingService;
-    HttpHeaders headers;
+    private final HttpHeaders headers;
 
     public TrainingController(TrainingService trainingService) {
         this.trainingService = trainingService;
