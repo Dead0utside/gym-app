@@ -1,15 +1,19 @@
 import { Button } from "@/components/ui/button";
-import Sidebar from "@/components/elements/sidebar";
 import { ThemeProvider } from "./components/utilities/themeProvider";
+import { SidebarProvider, SidebarTrigger } from "./components/ui/sidebar";
+import { AppSidebar } from "./components/elements/sidebar/appSidebar";
 
 Button;
 
 function App() {
 	return (
 		<ThemeProvider>
-			<div className="app">
-				<Sidebar />
-			</div>
+			<SidebarProvider>
+				<AppSidebar />
+				<main>
+					<SidebarTrigger />
+				</main>
+			</SidebarProvider>
 		</ThemeProvider>
 	);
 }
