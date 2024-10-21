@@ -5,6 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1/exercise")
 public class ExerciseController {
@@ -27,6 +29,11 @@ public class ExerciseController {
         }
 
         return new ResponseEntity<>(result, headers, HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/get")
+    public ResponseEntity<List<Exercise>> getAllExercises() {
+        return new ResponseEntity<>(exerciseService.getAllExercises(), headers, HttpStatus.OK);
     }
 
     @PostMapping(path = "/add")
