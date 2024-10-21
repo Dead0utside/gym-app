@@ -14,6 +14,9 @@ public class ExerciseService {
     }
 
     public void addExercise(Exercise exercise) {
+        if (exerciseRepository.existsByNameAndTrainings(exercise.getName(), exercise.getTrainings())) {
+            throw new RuntimeException("exercise already exists");
+        }
         this.exerciseRepository.save(exercise);
     }
 }

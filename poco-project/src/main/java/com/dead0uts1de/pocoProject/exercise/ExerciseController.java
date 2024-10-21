@@ -31,7 +31,11 @@ public class ExerciseController {
 
     @PostMapping(path = "/add")
     public ResponseEntity<String> addExercise(@RequestBody Exercise exercise) {
-        exerciseService.addExercise(exercise);
+        try {
+            exerciseService.addExercise(exercise);
+        } catch (RuntimeException e) {
+            return new ResponseEntity<>("exercise already exists", HttpStatus.BAD_REQUEST);
+        }
         return new ResponseEntity<>("Add exercise", HttpStatus.OK);
     }
 
