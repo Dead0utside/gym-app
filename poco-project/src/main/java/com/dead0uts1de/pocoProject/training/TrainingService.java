@@ -19,4 +19,10 @@ public class TrainingService {
         return trainingRepository.findAll();
     }
 
+    public void addTraining(Training training) {
+        if (trainingRepository.existsByNameAndIncludedExercises(training.getName(), training.getIncludedExercises())) {
+            throw new RuntimeException("this training already exists");
+        }
+        trainingRepository.save(training);
+    }
 }
