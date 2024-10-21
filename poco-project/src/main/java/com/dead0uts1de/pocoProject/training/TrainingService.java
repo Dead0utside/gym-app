@@ -1,5 +1,6 @@
 package com.dead0uts1de.pocoProject.training;
 
+import com.dead0uts1de.pocoProject.exercise.Exercise;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -24,5 +25,12 @@ public class TrainingService {
             throw new RuntimeException("this training already exists");
         }
         trainingRepository.save(training);
+    }
+
+    public List<Exercise> getExercisesInTraining(Long trainingId) {
+        if (!trainingRepository.existsById(trainingId)) {
+            throw new RuntimeException("training with id " + trainingId + " doesn't exist");
+        }
+        return trainingRepository.findExercisesForTraining(trainingId);
     }
 }

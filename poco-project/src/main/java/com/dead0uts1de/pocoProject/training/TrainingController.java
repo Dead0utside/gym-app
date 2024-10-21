@@ -1,5 +1,6 @@
 package com.dead0uts1de.pocoProject.training;
 
+import com.dead0uts1de.pocoProject.exercise.Exercise;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -46,5 +47,16 @@ public class TrainingController {
             return new ResponseEntity<>("training already exists", HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity<>("add training", HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/{trainingId}/exercises")
+    public ResponseEntity<List<Exercise>> getExercisesInTraining(@PathVariable Long trainingId) {
+        List<Exercise> result;
+        try {
+            result = trainingService.getExercisesInTraining(trainingId);
+        } catch (RuntimeException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(result, headers, HttpStatus.OK);
     }
 }
