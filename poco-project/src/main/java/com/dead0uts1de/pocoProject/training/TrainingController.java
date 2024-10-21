@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1/training")
 @RequiredArgsConstructor
@@ -18,6 +20,13 @@ public class TrainingController {
         return ResponseEntity.ok()
                 .header("Access-Control-Allow-Origin", "*")
                 .body(trainingService.getTrainingById(id));
+    }
+
+    @GetMapping(path = "/get")
+    public ResponseEntity<List<Training>> getAllTrainings() {
+        return ResponseEntity.ok()
+                .header("Access-Control-Allow-Origin", "*")
+                .body(trainingService.getAllTrainings());
     }
 
 }
