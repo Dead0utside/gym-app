@@ -23,6 +23,12 @@ public class PopulateDb {
 
             Training training1 = new Training("monday");
             trainingController.addTraining(training1);
+            Training training2 = new Training("tuesday");
+            trainingController.addTraining(training2);
+            Training training3 = new Training("thursday");
+            trainingController.addTraining(training3);
+            Training training4 = new Training("friday");
+            trainingController.addTraining(training4);
 
         };
     }
