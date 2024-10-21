@@ -1,6 +1,7 @@
 package com.dead0uts1de.pocoProject.training;
 
-import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,9 +12,17 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/training")
-@RequiredArgsConstructor
 public class TrainingController {
     private final TrainingService trainingService;
+    HttpHeaders headers;
+
+    public TrainingController(TrainingService trainingService) {
+        this.trainingService = trainingService;
+        this.headers = new HttpHeaders();
+        headers.add("Content-Type", "application/json; charset=utf-8");
+        headers.add("Access-Control-Allow-Origin", "*");
+
+    }
 
     @GetMapping(path = "/get/{trainingId}")
     public ResponseEntity<Training> getTrainingById(@PathVariable(value = "trainingId") Long id) {
@@ -21,14 +30,10 @@ public class TrainingController {
         try {
             result = trainingService.getTrainingById(id);
         } catch (RuntimeException e) {
-            return ResponseEntity.notFound()
-                    .header("Access-Control-Allow-Origin", "*")
-                    .build();
+            return new ResponseEntity<>(headers, HttpStatus.NOT_FOUND);
         }
 
-        return ResponseEntity.ok()
-                .header("Access-Control-Allow-Origin", "*")
-                .body(result);
+        return new ResponseEntity<>(result, headers, HttpStatus.OK);
     }
 
     @GetMapping(path = "/get")
