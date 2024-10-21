@@ -1,9 +1,6 @@
-import { Button } from "@/components/ui/button";
 import { ThemeProvider } from "./components/utilities/themeProvider";
 import { SidebarProvider, SidebarTrigger } from "./components/ui/sidebar";
-import { AppSidebar } from "./components/elements/sidebar/appSidebar";
-
-Button;
+import { AppSidebar } from "./components/elements/sidebar";
 
 function App() {
 	return (
