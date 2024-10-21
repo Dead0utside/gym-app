@@ -17,9 +17,18 @@ public class TrainingController {
 
     @GetMapping(path = "/get/{trainingId}")
     public ResponseEntity<Training> getTrainingById(@PathVariable(value = "trainingId") Long id) {
+        Training result;
+        try {
+            result = trainingService.getTrainingById(id);
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound()
+                    .header("Access-Control-Allow-Origin", "*")
+                    .build();
+        }
+
         return ResponseEntity.ok()
                 .header("Access-Control-Allow-Origin", "*")
-                .body(trainingService.getTrainingById(id));
+                .body(result);
     }
 
     @GetMapping(path = "/get")
