@@ -31,7 +31,6 @@ export function AppSidebar() {
 	const { isMobile } = useSidebar();
 
 	const [trainings, setTrainings] = useState(new Array<Training>());
-	const [open, setOpen] = useState(false);
 
 	useEffect(() => {
 		const fetchTrainings = async () => {
