@@ -1,6 +1,7 @@
 package com.dead0uts1de.pocoProject.exercise;
 
 import com.dead0uts1de.pocoProject.training.Training;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -29,6 +30,7 @@ public class Exercise {
     @Setter
     private Integer reps;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "includedExercises")
     private List<Training> trainings;
 

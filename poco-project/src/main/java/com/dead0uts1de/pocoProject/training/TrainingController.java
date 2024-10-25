@@ -1,6 +1,5 @@
 package com.dead0uts1de.pocoProject.training;
 
-import com.dead0uts1de.pocoProject.exercise.Exercise;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +18,6 @@ public class TrainingController {
         this.headers = new HttpHeaders();
         headers.add("Content-Type", "application/json; charset=utf-8");
         headers.add("Access-Control-Allow-Origin", "*");
-
     }
 
     @GetMapping(path = "/get/{trainingId}")
@@ -49,14 +47,12 @@ public class TrainingController {
         return new ResponseEntity<>("add training", HttpStatus.OK);
     }
 
-    @GetMapping(path = "/{trainingId}/exercises")
-    public ResponseEntity<List<Exercise>> getExercisesInTraining(@PathVariable Long trainingId) {
-        List<Exercise> result;
-        try {
-            result = trainingService.getExercisesInTraining(trainingId);
-        } catch (RuntimeException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-        return new ResponseEntity<>(result, headers, HttpStatus.OK);
+    @PutMapping(path = "/{trainingId}/add-exercise/{exerciseId}")
+    public ResponseEntity<String> addExerciseToTraining(
+            @PathVariable(name = "trainingId") Long trainingId,
+            @PathVariable(name = "exerciseId") Long exerciseID
+    ) {
+        trainingService.addExerciseToTraining(trainingId, exerciseID);
+        return new ResponseEntity<>("exercise added to training", HttpStatus.OK);
     }
 }

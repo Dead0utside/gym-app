@@ -18,9 +18,16 @@ public class PopulateDb {
             Hello hello = new Hello("Hello World");
             helloService.addHello(hello);
 
-            Exercise ex = new Exercise("bench press", 55f, 3, 12);
-            exerciseController.addExercise(ex);
+            Exercise ex1 = new Exercise("bench press", 55f, 3, 12);
+            Exercise ex2 = new Exercise("curls", 20f, 3, 12);
+            Exercise ex3 = new Exercise("squats", 50f, 3, 12);
+            Exercise ex4 = new Exercise("pushdowns", 20f, 3, 12);
 
+            exerciseController.addExercise(ex1);
+            exerciseController.addExercise(ex2);
+            exerciseController.addExercise(ex3);
+            exerciseController.addExercise(ex4);
+            
             Training training1 = new Training("monday");
             trainingController.addTraining(training1);
             Training training2 = new Training("tuesday");
@@ -29,6 +36,7 @@ public class PopulateDb {
             trainingController.addTraining(training3);
             Training training4 = new Training("friday");
             trainingController.addTraining(training4);
+
 
         };
     }

@@ -34,6 +34,10 @@ public class Training {
     @Setter
     private List<Exercise> includedExercises;
 
+    public void addExerciseToTraining(Exercise exercise) {
+        includedExercises.add(exercise);
+    }
+
     public Training(String name) {
         this.name = name;
         this.includedExercises = new ArrayList<>();

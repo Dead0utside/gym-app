@@ -1,6 +1,7 @@
 package com.dead0uts1de.pocoProject.training;
 
 import com.dead0uts1de.pocoProject.exercise.Exercise;
+import com.dead0uts1de.pocoProject.exercise.ExerciseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +11,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class TrainingService {
     private final TrainingRepository trainingRepository;
+
+    private final ExerciseService exerciseService;
 
     public Training getTrainingById(Long id) {
         return trainingRepository.findById(id)
@@ -27,10 +30,17 @@ public class TrainingService {
         trainingRepository.save(training);
     }
 
-    public List<Exercise> getExercisesInTraining(Long trainingId) {
-        if (!trainingRepository.existsById(trainingId)) {
-            throw new RuntimeException("training with id " + trainingId + " doesn't exist");
-        }
-        return trainingRepository.findExercisesForTraining(trainingId);
+    public void addExerciseToTraining(Long trainingId, Long exerciseId) {
+        Training training = this.getTrainingById(trainingId);
+        Exercise exercise = exerciseService.getExerciseById(exerciseId);
+        training.addExerciseToTraining(exercise);
+        trainingRepository.save(training);
     }
+
+//    public List<Exercise> getExercisesInTraining(Long trainingId) {
+//        if (!trainingRepository.existsById(trainingId)) {
+//            throw new RuntimeException("training with id " + trainingId + " doesn't exist");
+//        }
+//        return trainingRepository.findExercisesForTraining(trainingId);
+//    }
 }

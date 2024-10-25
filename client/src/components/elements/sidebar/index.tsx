@@ -64,6 +64,7 @@ export function AppSidebar({ setWorkspaceContent }: Props) {
 					<SidebarGroupContent>
 						<SidebarMenu>
 							{trainings.map((training) => (
+								// TODO crete a separate component for SidebarMenuItem (cleaner)
 								<SidebarMenuItem
 									key={`training-${training.id}`}
 									onClick={() =>
