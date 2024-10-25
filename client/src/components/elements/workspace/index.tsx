@@ -1,11 +1,11 @@
 import { Training } from "@/components/utilities/types";
 
 type Props = {
-	trainingName: Training;
+	trainingId: number;
 };
 
-const index = ({ trainingName }: Props) => {
-	return <div>Workspace</div>;
+const Workspace = ({ trainingId }: Props) => {
+	return <div>{trainingId}</div>;
 };
 
-export default index;
+export default Workspace;

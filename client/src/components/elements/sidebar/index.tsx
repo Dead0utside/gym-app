@@ -27,7 +27,11 @@ import { useEffect, useState } from "react";
 
 const GET_URL = "http://localhost:8080/api/v1/training/get";
 
-export function AppSidebar() {
+type Props = {
+	setWorkspaceContent: (value: number) => void;
+};
+
+export function AppSidebar({ setWorkspaceContent }: Props) {
 	const { isMobile } = useSidebar();
 
 	const [trainings, setTrainings] = useState(new Array<Training>());
@@ -62,6 +66,9 @@ export function AppSidebar() {
 							{trainings.map((training) => (
 								<SidebarMenuItem
 									key={`training-${training.id}`}
+									onClick={() =>
+										setWorkspaceContent(training.id)
+									}
 								>
 									<SidebarMenuButton asChild>
 										<span>{training.name}</span>
