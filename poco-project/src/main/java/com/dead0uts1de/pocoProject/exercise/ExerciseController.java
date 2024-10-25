@@ -46,4 +46,9 @@ public class ExerciseController {
         return new ResponseEntity<>("Add exercise", HttpStatus.OK);
     }
 
+    @GetMapping(path = "/get-from-training/{trainingId}")
+    public ResponseEntity<List<Exercise>> getExercisesInTraining(@PathVariable(value = "trainingId") Long trainingId) {
+        return new ResponseEntity<>(exerciseService.getExercisesInTraining(trainingId), headers, HttpStatus.OK);
+    }
+
 }

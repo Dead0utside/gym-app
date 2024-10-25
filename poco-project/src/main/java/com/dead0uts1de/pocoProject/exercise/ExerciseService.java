@@ -25,4 +25,8 @@ public class ExerciseService {
         }
         this.exerciseRepository.save(exercise);
     }
+
+    public List<Exercise> getExercisesInTraining(Long trainingId) {
+        return exerciseRepository.findByTrainingsId(trainingId);
+    }
 }

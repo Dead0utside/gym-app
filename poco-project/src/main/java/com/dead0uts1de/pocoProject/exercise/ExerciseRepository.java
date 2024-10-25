@@ -19,4 +19,7 @@ public interface ExerciseRepository extends JpaRepository<Exercise, Long> {
     List<Exercise> findAll();
 
     boolean existsByNameAndTrainings(String name, List<Training> trainings);
+
+    @NonNull
+    List<Exercise> findByTrainingsId(Long trainingId);
 }
