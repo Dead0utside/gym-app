@@ -31,7 +31,7 @@ public class Exercise {
     private Integer reps;
 
     @JsonIgnore
-    @ManyToMany(mappedBy = "includedExercises")
+    @ManyToMany(mappedBy = "includedExercises", fetch = FetchType.EAGER)
     private List<Training> trainings;
 
     public Exercise(String name, Float weight, Integer sets, Integer reps) {

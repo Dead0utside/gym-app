@@ -27,16 +27,24 @@ public class PopulateDb {
             exerciseController.addExercise(ex2);
             exerciseController.addExercise(ex3);
             exerciseController.addExercise(ex4);
-            
+
             Training training1 = new Training("monday");
-            trainingController.addTraining(training1);
             Training training2 = new Training("tuesday");
-            trainingController.addTraining(training2);
             Training training3 = new Training("thursday");
-            trainingController.addTraining(training3);
             Training training4 = new Training("friday");
+
+            trainingController.addTraining(training1);
+            trainingController.addTraining(training2);
+            trainingController.addTraining(training3);
             trainingController.addTraining(training4);
 
+            trainingController.addExerciseToTraining(1L, 1L);
+            trainingController.addExerciseToTraining(1L, 2L);
+            trainingController.addExerciseToTraining(1L, 3L);
+            trainingController.addExerciseToTraining(1L, 4L);
+            trainingController.addExerciseToTraining(2L, 3L);
+            trainingController.addExerciseToTraining(2L, 4L);
+            trainingController.addExerciseToTraining(3L, 4L);
 
         };
     }

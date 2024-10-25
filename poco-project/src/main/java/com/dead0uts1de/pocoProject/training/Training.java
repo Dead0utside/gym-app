@@ -25,7 +25,7 @@ public class Training {
     @Setter
     private String description;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "training_to_exercise",
             joinColumns = @JoinColumn(name = "training_id"),
