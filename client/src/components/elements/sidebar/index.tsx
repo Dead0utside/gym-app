@@ -39,13 +39,10 @@ export function AppSidebar({ setWorkspaceContent }: Props) {
 	useEffect(() => {
 		const fetchTrainings = async () => {
 			const fetchResult = await fetch(`${GET_URL}`);
-			const fetchResultJson =
-				(await fetchResult.json()) as Array<Training>;
-
-			setTrainings(fetchResultJson);
+			return (await fetchResult.json()) as Array<Training>;
 		};
 
-		fetchTrainings();
+		fetchTrainings().then(response => setTrainings(response));
 	}, [trainings]);
 
 	return (
