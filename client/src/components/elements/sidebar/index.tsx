@@ -47,7 +47,7 @@ export function AppSidebar({ setWorkspaceContent }: Props) {
 
 	return (
 		<Sidebar>
-			<SidebarHeader className="flex-rowls">
+			<SidebarHeader className={`flex-row pt-5`}>
 				<ModeToggle />
 				<h1 className="mx-auto"> Gym app </h1>
 				{isMobile && <SidebarTrigger />}

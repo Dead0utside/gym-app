@@ -11,7 +11,7 @@ function App() {
 		<ThemeProvider>
 			<SidebarProvider>
 				<AppSidebar setWorkspaceContent={setWorkspaceContent} />
-				<main>
+				<main className="w-screen">
 					<SidebarTrigger />
 					<Workspace trainingId={workspaceContent} />
 				</main>
