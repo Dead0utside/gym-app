@@ -3,7 +3,6 @@ import {
 	SidebarContent,
 	SidebarFooter,
 	SidebarGroup,
-	SidebarGroupAction,
 	SidebarGroupContent,
 	SidebarGroupLabel,
 	SidebarHeader,
@@ -13,18 +12,9 @@ import {
 } from "@/components/ui/sidebar";
 import { ModeToggle } from "@/components/utilities/modeToggle";
 import { Training } from "@/components/utilities/types";
-import { Plus } from "lucide-react";
 import { useEffect, useState } from "react";
 import TrainingMenuItem from "@/components/elements/sidebar/trainingMenuItem.tsx";
-import {
-	Dialog,
-	DialogContent,
-	DialogDescription, DialogFooter,
-	DialogHeader,
-	DialogTitle,
-	DialogTrigger
-} from "@/components/ui/dialog.tsx";
-import { Button } from "@/components/ui/button.tsx";
+import AddTrainingDialog from "@/components/elements/sidebar/addTrainingDialog.tsx";
 
 const GET_URL = "http://localhost:8080/api/v1/training/get";
 
@@ -57,23 +47,7 @@ export function AppSidebar({ setWorkspaceContent }: Props) {
 				<SidebarGroup>
 					<SidebarGroupLabel>Trainings</SidebarGroupLabel>
 
-					<Dialog>
-						<DialogTrigger asChild>
-							<SidebarGroupAction title="Add Training">
-								<Plus /> <span className="sr-only"> Add Training</span>
-							</SidebarGroupAction>
-						</DialogTrigger>
-						<DialogContent>
-							<DialogHeader>
-								<DialogTitle>Add training</DialogTitle>
-								<DialogDescription>Create a new training</DialogDescription>
-							</DialogHeader>
-							// TODO create a form for training creation
-							<DialogFooter>
-								<Button type={"submit"}> Add</Button>
-							</DialogFooter>
-						</DialogContent>
-					</Dialog>
+					<AddTrainingDialog />
 					<SidebarGroupContent>
 						<SidebarMenu>
 							{trainings.map((training) => (
