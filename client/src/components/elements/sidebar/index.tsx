@@ -63,6 +63,7 @@ export function AppSidebar({ setWorkspaceContent }: Props) {
 							{trainings.map((training) => (
 								// TODO crete a separate component for SidebarMenuItem (cleaner)
 								<SidebarMenuItem
+									className={`cursor-default`}
 									key={`training-${training.id}`}
 									onClick={() =>
 										setWorkspaceContent(training.id)
