@@ -24,7 +24,7 @@ const AddTrainingDialog = () => {
 					<DialogTitle>Add training</DialogTitle>
 					<DialogDescription>Create a new training</DialogDescription>
 				</DialogHeader>
-				{/*TODO create a form for training creation*/}
+				{/*TODO create a form for training creation here*/}
 				<DialogFooter>
 					<Button type={"submit"}> Add</Button>
 				</DialogFooter>
