@@ -22,7 +22,11 @@ const addTrainingFormSchema = z.object({
 	description: z.ostring(),
 })
 
-export function AddTrainingForm() {
+type Props = {
+	onSuccess: (value: void) => void ;
+}
+
+export function AddTrainingForm({ onSuccess }: Props) {
 
 	const form = useForm<z.infer<typeof addTrainingFormSchema>>({
 		resolver: zodResolver(addTrainingFormSchema),
@@ -33,14 +37,25 @@ export function AddTrainingForm() {
 	})
 
 	async function onSubmit(values: z.infer<typeof addTrainingFormSchema>) {
-		const response = await fetch(POST_URL, {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(values),
-		})
-		console.log(response);
+		console.log(values);
+		try {
+			const response = await fetch(POST_URL, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(values),
+			});
+
+			if (response.ok) {
+				console.log("Submission successful");
+				onSuccess();
+			} else {
+				console.error("Submission failed");
+			}
+		} catch (error) {
+			console.error("Error submitting form:", error);
+		}
 	}
 
 	return (
@@ -73,7 +88,6 @@ export function AddTrainingForm() {
 					)}
 				/>
 				<DialogFooter>
-					{/*TODO make the form close on successful submission*/}
 					<Button type={"submit"}> Add</Button>
 				</DialogFooter>
 			</form>
