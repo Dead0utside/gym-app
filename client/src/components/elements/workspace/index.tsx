@@ -20,6 +20,8 @@ const Workspace = ({ trainingId }: Props) => {
 		fetchExercises().then(response => setExercises(response));
 	}, [trainingId]);
 
+	// TODO add "+" button in workspace to create exercise
+	// TODO create form for exercise submission
 	return <section className="md:flex justify-evenly gap-5">
 		{exercises.map(exercise => (
 			<ExerciseCard exercise={exercise} key={exercise.id} />
