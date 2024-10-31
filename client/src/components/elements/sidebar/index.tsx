@@ -46,7 +46,6 @@ export function AppSidebar({ setWorkspaceContent }: Props) {
 			<SidebarContent>
 				<SidebarGroup>
 					<SidebarGroupLabel>Trainings</SidebarGroupLabel>
-
 					<AddTrainingDialog />
 					<SidebarGroupContent>
 						<SidebarMenu>

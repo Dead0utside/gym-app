@@ -1,15 +1,16 @@
+"use client"
+
 import {
 	Dialog,
 	DialogContent,
 	DialogDescription,
-	DialogFooter,
 	DialogHeader,
 	DialogTitle,
 	DialogTrigger
 } from "@/components/ui/dialog.tsx";
 import { SidebarGroupAction } from "@/components/ui/sidebar.tsx";
 import { Plus } from "lucide-react";
-import { Button } from "@/components/ui/button.tsx";
+import { AddTrainingForm } from "@/components/utilities/formSchemas/addTrainingForm.tsx";
 
 const AddTrainingDialog = () => {
 	return (
@@ -24,10 +25,7 @@ const AddTrainingDialog = () => {
 					<DialogTitle>Add training</DialogTitle>
 					<DialogDescription>Create a new training</DialogDescription>
 				</DialogHeader>
-				{/*TODO create a form for training creation here*/}
-				<DialogFooter>
-					<Button type={"submit"}> Add</Button>
-				</DialogFooter>
+				<AddTrainingForm />
 			</DialogContent>
 		</Dialog>
 	);
