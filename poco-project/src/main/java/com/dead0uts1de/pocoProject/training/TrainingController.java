@@ -17,7 +17,7 @@ public class TrainingController {
         this.trainingService = trainingService;
         this.headers = new HttpHeaders();
         headers.add("Content-Type", "application/json; charset=utf-8");
-        headers.add("Access-Control-Allow-Origin", "*");
+//        headers.add("Access-Control-Allow-Origin", "*");
     }
 
     @GetMapping(path = "/get/{trainingId}")
@@ -42,9 +42,9 @@ public class TrainingController {
         try {
             trainingService.addTraining(training);
         } catch (RuntimeException e) {
-            return new ResponseEntity<>("training already exists", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("training already exists", headers, HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>("add training", HttpStatus.OK);
+        return new ResponseEntity<>("add training", headers, HttpStatus.OK);
     }
 
     @PutMapping(path = "/{trainingId}/add-exercise/{exerciseId}")

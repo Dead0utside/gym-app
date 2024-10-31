@@ -16,7 +16,7 @@ public class ExerciseController {
     public ExerciseController(ExerciseService exerciseService) {
         this.exerciseService = exerciseService;
         headers.add("Content-Type", "application/json; charset=utf-8");
-        headers.add("Access-Control-Allow-Origin", "*");
+//        headers.add("Access-Control-Allow-Origin", "*");
     }
 
     @GetMapping(path = "/get/{exerciseId}")
