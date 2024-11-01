@@ -41,7 +41,7 @@ public class ExerciseController {
         try {
             exerciseService.addExercise(exercise);
         } catch (RuntimeException e) {
-            return new ResponseEntity<>("exercise already exists", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity<>("Add exercise", HttpStatus.OK);
     }
@@ -51,4 +51,22 @@ public class ExerciseController {
         return new ResponseEntity<>(exerciseService.getExercisesInTraining(trainingId), headers, HttpStatus.OK);
     }
 
+    @PostMapping(path = "add-to-training/{trainingId}")
+    public ResponseEntity<String> createExerciseInTraining(@RequestBody Exercise exercise, @PathVariable(name = "trainingId") Long trainingId) {
+        try {
+            exerciseService.createExerciseInTraining(exercise, trainingId);
+        } catch (RuntimeException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>("Add exercise", HttpStatus.OK);
+    }
+//
+//    @PutMapping(path = "/{exerciseId}/add-to-training/{trainingId}")
+//    public ResponseEntity<String> addExerciseToTraining(
+//            @PathVariable(name = "exerciseId") Long exerciseID,
+//            @PathVariable(name = "trainingId") Long trainingId
+//    ) {
+//        exerciseService.createExerciseInTraining(trainingId, exerciseID);
+//        return new ResponseEntity<>("exercise added to training", HttpStatus.OK);
+//    }
 }

@@ -6,6 +6,7 @@ import com.dead0uts1de.pocoProject.hello.Hello;
 import com.dead0uts1de.pocoProject.hello.HelloService;
 import com.dead0uts1de.pocoProject.training.Training;
 import com.dead0uts1de.pocoProject.training.TrainingController;
+import com.dead0uts1de.pocoProject.training.TrainingService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class PopulateDb {
     @Bean
-    CommandLineRunner HelloCLR(HelloService helloService, ExerciseController exerciseController, TrainingController trainingController) {
+    CommandLineRunner HelloCLR(HelloService helloService, ExerciseController exerciseController, TrainingController trainingController, TrainingService trainingService) {
         return args -> {
             Hello hello = new Hello("Hello World");
             helloService.addHello(hello);
@@ -38,13 +39,13 @@ public class PopulateDb {
             trainingController.addTraining(training3);
             trainingController.addTraining(training4);
 
-            trainingController.addExerciseToTraining(1L, 1L);
-            trainingController.addExerciseToTraining(1L, 2L);
-            trainingController.addExerciseToTraining(1L, 3L);
-            trainingController.addExerciseToTraining(1L, 4L);
-            trainingController.addExerciseToTraining(2L, 3L);
-            trainingController.addExerciseToTraining(2L, 4L);
-            trainingController.addExerciseToTraining(3L, 4L);
+            trainingService.addExerciseToTraining(1L, ex1);
+            trainingService.addExerciseToTraining(1L, ex2);
+            trainingService.addExerciseToTraining(1L, ex3);
+            trainingService.addExerciseToTraining(1L, ex4);
+            trainingService.addExerciseToTraining(2L, ex3);
+            trainingService.addExerciseToTraining(2L, ex4);
+            trainingService.addExerciseToTraining(3L, ex4);
 
         };
     }

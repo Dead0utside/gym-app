@@ -46,13 +46,4 @@ public class TrainingController {
         }
         return new ResponseEntity<>("add training", headers, HttpStatus.OK);
     }
-
-    @PutMapping(path = "/{trainingId}/add-exercise/{exerciseId}")
-    public ResponseEntity<String> addExerciseToTraining(
-            @PathVariable(name = "trainingId") Long trainingId,
-            @PathVariable(name = "exerciseId") Long exerciseID
-    ) {
-        trainingService.addExerciseToTraining(trainingId, exerciseID);
-        return new ResponseEntity<>("exercise added to training", HttpStatus.OK);
-    }
 }
