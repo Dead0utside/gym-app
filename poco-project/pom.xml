@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.dead0uts1de</groupId>
-	<artifactId>poco-project</artifactId>
+	<artifactId>gym-app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>server</name>
 	<description>gym app back end</description>
