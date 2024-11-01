@@ -7,19 +7,29 @@ import {
 	DialogTrigger
 } from "@/components/ui/dialog.tsx";
 import { Plus } from "lucide-react";
+import { useState } from "react";
+import { AddExerciseForm } from "@/components/utilities/forms/addExerciseForm.tsx";
 
-const AddExerciseDialog = () => {
+type Props = {
+	trainingId: number,
+}
+
+const AddExerciseDialog = ({ trainingId }: Props) => {
+	const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+	const handleClose = () => setIsDialogOpen(false);
+
 	return (
-		<Dialog>
-			<DialogTrigger>
+		<Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+			{trainingId > 0 && <DialogTrigger asChild>
 				<Plus />
-			</DialogTrigger>
+			</DialogTrigger>}
 			<DialogContent>
 				<DialogHeader>
 					<DialogTitle>Add Exercise</DialogTitle>
 					<DialogDescription>Create a new exercise</DialogDescription>
 				</DialogHeader>
-
+				<AddExerciseForm trainingId={trainingId} onSuccess={handleClose}/>
 			</DialogContent>
 		</Dialog>
 	);
