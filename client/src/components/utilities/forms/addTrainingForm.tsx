@@ -68,7 +68,7 @@ export function AddTrainingForm({ onSuccess }: Props) {
 						<FormItem>
 							<FormLabel>Training name</FormLabel>
 							<FormControl>
-								<Input placeholder="e.g. chest day" {...field} />
+								<Input placeholder="e.g. Chest day" {...field} />
 							</FormControl>
 							<FormMessage />
 						</FormItem>
@@ -81,7 +81,7 @@ export function AddTrainingForm({ onSuccess }: Props) {
 						<FormItem>
 							<FormLabel>Description</FormLabel>
 							<FormControl>
-								<Input placeholder="e.g. upper body focus" {...field} />
+								<Input placeholder="e.g. Upper body focus" {...field} />
 							</FormControl>
 							<FormMessage />
 						</FormItem>
