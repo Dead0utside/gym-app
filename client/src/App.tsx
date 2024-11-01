@@ -12,7 +12,7 @@ function App() {
 			<SidebarProvider>
 				<AppSidebar setWorkspaceContent={setWorkspaceContent} />
 				<main className="w-screen">
-					<SidebarTrigger />
+					<SidebarTrigger className="m-5" />
 					<Workspace trainingId={workspaceContent} />
 				</main>
 			</SidebarProvider>
