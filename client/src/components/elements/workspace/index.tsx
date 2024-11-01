@@ -22,7 +22,6 @@ const Workspace = ({ trainingId }: Props) => {
 		fetchExercises().then((response) => setExercises(response));
 	});
 
-	// TODO create form for exercise submission
 	return (
 		<section id="workspace">
 			<section className={`flex justify-between`}>
