@@ -9,6 +9,7 @@ import {
 import { Plus } from "lucide-react";
 import { useState } from "react";
 import { AddExerciseForm } from "@/components/utilities/forms/addExerciseForm.tsx";
+import { Button } from "@/components/ui/button.tsx";
 
 type Props = {
 	trainingId: number,
@@ -22,7 +23,9 @@ const AddExerciseDialog = ({ trainingId }: Props) => {
 	return (
 		<Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
 			{trainingId > 0 && <DialogTrigger asChild>
-				<Plus />
+				<Button variant="ghost" className="m-5 p-3">
+					<Plus />
+				</Button>
 			</DialogTrigger>}
 			<DialogContent>
 				<DialogHeader>

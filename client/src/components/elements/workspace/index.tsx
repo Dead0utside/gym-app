@@ -26,9 +26,7 @@ const Workspace = ({ trainingId }: Props) => {
 		<section id="workspace">
 			<section className={`flex justify-between`}>
 				<SidebarTrigger className="m-5" />
-				<div className="m-5">
 					<AddExerciseDialog trainingId={trainingId}/>
-				</div>
 			</section>
 			<section className="justify-evenly gap-5 md:flex md:flex-wrap">
 				{exercises.map((exercise) => (
