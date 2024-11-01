@@ -50,6 +50,7 @@ export function AppSidebar({ setWorkspaceContent }: Props) {
 					<SidebarGroupContent>
 						<SidebarMenu>
 							{trainings.map((training) => (
+								// TODO make training menu item close the sidebar on mobile
 								<TrainingMenuItem key={training.id} training={training} setWorkspaceContent={setWorkspaceContent} />
 							))}
 						</SidebarMenu>

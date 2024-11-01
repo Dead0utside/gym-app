@@ -1,6 +1,7 @@
 import { Exercise } from "@/components/utilities/types";
 import { useEffect, useState } from "react";
 import ExerciseCard from "@/components/elements/workspace/exerciseCard.tsx";
+import AddExerciseDialog from "@/components/elements/workspace/addExerciseDialog.tsx";
 
 const GET_URL = "http://localhost:8080/api/v1/exercise/get-from-training";
 
@@ -17,16 +18,23 @@ const Workspace = ({ trainingId }: Props) => {
 			return (await fetchResult.json()) as Array<Exercise>;
 		};
 
-		fetchExercises().then(response => setExercises(response));
+		fetchExercises().then((response) => setExercises(response));
 	}, [trainingId]);
 
 	// TODO add "+" button in workspace to create exercise
 	// TODO create form for exercise submission
-	return <section className="md:flex justify-evenly gap-5">
-		{exercises.map(exercise => (
-			<ExerciseCard exercise={exercise} key={exercise.id} />
-		))}
-	</section>;
+	return (
+		<section id="workspace">
+			<section className={`flex justify-end px-5`}>
+				<AddExerciseDialog/>
+			</section>
+			<section className="justify-evenly gap-5 md:flex">
+				{exercises.map((exercise) => (
+					<ExerciseCard exercise={exercise} key={exercise.id} />
+				))}
+			</section>
+		</section>
+	);
 };
 
 export default Workspace;
