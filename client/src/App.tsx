@@ -1,5 +1,5 @@
 import { ThemeProvider } from "./components/utilities/themeProvider";
-import { SidebarProvider, SidebarTrigger } from "./components/ui/sidebar";
+import { SidebarProvider } from "./components/ui/sidebar";
 import { AppSidebar } from "./components/elements/sidebar";
 import Workspace from "./components/elements/workspace";
 import { useState } from "react";
@@ -12,7 +12,6 @@ function App() {
 			<SidebarProvider>
 				<AppSidebar setWorkspaceContent={setWorkspaceContent} />
 				<main className="w-screen">
-					<SidebarTrigger className="m-5" />
 					<Workspace trainingId={workspaceContent} />
 				</main>
 			</SidebarProvider>

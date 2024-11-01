@@ -2,6 +2,7 @@ import { Exercise } from "@/components/utilities/types";
 import { useEffect, useState } from "react";
 import ExerciseCard from "@/components/elements/workspace/exerciseCard.tsx";
 import AddExerciseDialog from "@/components/elements/workspace/addExerciseDialog.tsx";
+import { SidebarTrigger } from "@/components/ui/sidebar.tsx";
 
 const GET_URL = "http://localhost:8080/api/v1/exercise/get-from-training";
 
@@ -24,8 +25,11 @@ const Workspace = ({ trainingId }: Props) => {
 	// TODO create form for exercise submission
 	return (
 		<section id="workspace">
-			<section className={`flex justify-end px-5`}>
-				<AddExerciseDialog trainingId={trainingId}/>
+			<section className={`flex justify-between`}>
+				<SidebarTrigger className="m-5" />
+				<div className="m-5">
+					<AddExerciseDialog trainingId={trainingId}/>
+				</div>
 			</section>
 			<section className="justify-evenly gap-5 md:flex md:flex-wrap">
 				{exercises.map((exercise) => (
