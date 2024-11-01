@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dialog.tsx";
 import { SidebarGroupAction } from "@/components/ui/sidebar.tsx";
 import { Plus } from "lucide-react";
-import { AddTrainingForm } from "@/components/utilities/formSchemas/addTrainingForm.tsx";
+import { AddTrainingForm } from "@/components/utilities/forms/addTrainingForm.tsx";
 import { useState } from "react";
 
 const AddTrainingDialog = () => {
