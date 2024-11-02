@@ -7,13 +7,15 @@ import {
 } from "@/components/ui/dropdown-menu.tsx";
 import { MoreHorizontal } from "lucide-react";
 import { Training } from "@/components/utilities/types.ts";
+import { Button } from "@/components/ui/button.tsx";
 
 type Props = {
 	training: Training;
 	setWorkspaceContent: (value: number) => void;
+	deleteTrainingHandler: (value: number) => void;
 }
 
-const TrainingMenuItem = ({training, setWorkspaceContent}: Props) => {
+const TrainingMenuItem = ({training, setWorkspaceContent, deleteTrainingHandler}: Props) => {
 	const {isMobile, setOpenMobile} = useSidebar();
 
 	return (
@@ -40,11 +42,15 @@ const TrainingMenuItem = ({training, setWorkspaceContent}: Props) => {
 					side="right"
 					align="start"
 				>
-					<DropdownMenuItem>
-						<span>Rename</span>
+					<DropdownMenuItem className="p-0">
+						<Button className="mx-auto" variant="ghost">
+							Rename
+						</Button>
 					</DropdownMenuItem>
-					<DropdownMenuItem>
-						<span>Delete</span>
+					<DropdownMenuItem className="p-0">
+						<Button className="mx-auto" variant="ghost" onClick={() => deleteTrainingHandler(training.id)}>
+							Delete
+						</Button>
 					</DropdownMenuItem>
 				</DropdownMenuContent>
 			</DropdownMenu>
