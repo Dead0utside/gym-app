@@ -26,9 +26,14 @@ public class TrainingService {
         }
         trainingRepository.save(training);
     }
+
     public void addExerciseToTraining(Long trainingId, Exercise exercise) {
         Training training = this.getTrainingById(trainingId);
         training.addExerciseToTraining(exercise);
         trainingRepository.save(training);
+    }
+
+    public void deleteTrainingByID(Long id) {
+        trainingRepository.deleteById(id);
     }
 }

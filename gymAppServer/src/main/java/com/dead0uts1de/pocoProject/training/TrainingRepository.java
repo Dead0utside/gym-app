@@ -17,4 +17,7 @@ public interface TrainingRepository extends JpaRepository<Training, Long>{
     List<Training> findAll();
 
     boolean existsByNameAndIncludedExercises(String name, List<Exercise> includedExercises);
+
+    @Override
+    void deleteById(@NonNull Long id);
 }
