@@ -1,4 +1,4 @@
-import { SidebarMenuAction, SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar.tsx";
+import { SidebarMenuAction, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/components/ui/sidebar.tsx";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -14,11 +14,17 @@ type Props = {
 }
 
 const TrainingMenuItem = ({training, setWorkspaceContent}: Props) => {
+	const {isMobile, setOpenMobile} = useSidebar();
+
 	return (
 		<SidebarMenuItem
-			className={`cursor-default`}
-			onClick={() =>
-				setWorkspaceContent(training.id)
+			className={`cursor-pointer`}
+			onClick={() => {
+					setWorkspaceContent(training.id);
+					if (isMobile) {
+						setOpenMobile(false);
+					}
+				}
 			}
 		>
 			<SidebarMenuButton asChild>
