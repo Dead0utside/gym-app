@@ -56,17 +56,9 @@ public class ExerciseController {
         try {
             exerciseService.createExerciseInTraining(exercise, trainingId);
         } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity<>("Add exercise", HttpStatus.OK);
     }
-//
-//    @PutMapping(path = "/{exerciseId}/add-to-training/{trainingId}")
-//    public ResponseEntity<String> addExerciseToTraining(
-//            @PathVariable(name = "exerciseId") Long exerciseID,
-//            @PathVariable(name = "trainingId") Long trainingId
-//    ) {
-//        exerciseService.createExerciseInTraining(trainingId, exerciseID);
-//        return new ResponseEntity<>("exercise added to training", HttpStatus.OK);
-//    }
 }

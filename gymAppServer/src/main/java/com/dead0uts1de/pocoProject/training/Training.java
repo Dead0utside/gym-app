@@ -25,6 +25,7 @@ public class Training {
     @Setter
     private String description;
 
+//    TODO re-architect training-to-exercise to be one-to-many
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "training_to_exercise",

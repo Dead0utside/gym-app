@@ -34,10 +34,9 @@ public class ExerciseService {
 
     public void createExerciseInTraining(Exercise exercise, Long trainingId) {
         if (exerciseRepository.existsByNameAndTrainings(exercise.getName(), exercise.getTrainings())) {
-            throw new RuntimeException("exercise already exists");
+            throw new RuntimeException("exercise already exists in " + exercise.getTrainings());
         }
         this.exerciseRepository.save(exercise);
         trainingService.addExerciseToTraining(trainingId, exercise);
     }
-
 }
