@@ -18,8 +18,8 @@ public interface ExerciseRepository extends JpaRepository<Exercise, Long> {
     @NonNull
     List<Exercise> findAll();
 
-    boolean existsByNameAndTrainings(String name, List<Training> trainings);
+    boolean existsByNameAndTraining(String name, Training training);
 
     @NonNull
-    List<Exercise> findByTrainingsId(Long trainingId);
+    List<Exercise> findByTrainingId(Long trainingId);
 }

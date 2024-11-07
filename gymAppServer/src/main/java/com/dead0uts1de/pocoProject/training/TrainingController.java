@@ -49,7 +49,6 @@ public class TrainingController {
 
     @DeleteMapping(path = "/delete/{trainingId}")
     public ResponseEntity<String> deleteTrainingById(@PathVariable(name = "trainingId") Long id) {
-//        TODO delete all associated exercises when deleting a training
         trainingService.deleteTrainingByID(id);
         return new ResponseEntity<>("Training deleted", headers, HttpStatus.OK);
     }

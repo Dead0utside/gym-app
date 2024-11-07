@@ -16,6 +16,7 @@ import java.util.List;
 public class Training {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "training_id")
     private Long id;
 
     @Setter
@@ -25,17 +26,12 @@ public class Training {
     @Setter
     private String description;
 
-//    TODO re-architect training-to-exercise to be one-to-many
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "training_to_exercise",
-            joinColumns = @JoinColumn(name = "training_id"),
-            inverseJoinColumns = @JoinColumn(name = "exercise_id")
-    )
+    @OneToMany(mappedBy = "training", cascade = CascadeType.ALL, orphanRemoval = true)
     @Setter
     private List<Exercise> includedExercises;
 
     public void addExerciseToTraining(Exercise exercise) {
+        exercise.setTraining(this);
         includedExercises.add(exercise);
     }
 

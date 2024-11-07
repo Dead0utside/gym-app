@@ -36,15 +36,15 @@ public class ExerciseController {
         return new ResponseEntity<>(exerciseService.getAllExercises(), headers, HttpStatus.OK);
     }
 
-    @PostMapping(path = "/add")
-    public ResponseEntity<String> addExercise(@RequestBody Exercise exercise) {
-        try {
-            exerciseService.addExercise(exercise);
-        } catch (RuntimeException e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
-        }
-        return new ResponseEntity<>("Add exercise", HttpStatus.OK);
-    }
+//    @PostMapping(path = "/add")
+//    public ResponseEntity<String> addExercise(@RequestBody Exercise exercise) {
+//        try {
+//            exerciseService.addExercise(exercise);
+//        } catch (RuntimeException e) {
+//            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+//        }
+//        return new ResponseEntity<>("Add exercise", HttpStatus.OK);
+//    }
 
     @GetMapping(path = "/get-from-training/{trainingId}")
     public ResponseEntity<List<Exercise>> getExercisesInTraining(@PathVariable(value = "trainingId") Long trainingId) {
@@ -54,6 +54,7 @@ public class ExerciseController {
     @PostMapping(path = "add-to-training/{trainingId}")
     public ResponseEntity<String> createExerciseInTraining(@RequestBody Exercise exercise, @PathVariable(name = "trainingId") Long trainingId) {
         try {
+//            System.out.println("success");
             exerciseService.createExerciseInTraining(exercise, trainingId);
         } catch (RuntimeException e) {
             System.out.println(e.getMessage());

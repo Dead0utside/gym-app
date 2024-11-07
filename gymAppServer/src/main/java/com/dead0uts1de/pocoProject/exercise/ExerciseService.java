@@ -21,20 +21,20 @@ public class ExerciseService {
         return exerciseRepository.findAll();
     }
 
-    public void addExercise(Exercise exercise) {
-        if (exerciseRepository.existsByNameAndTrainings(exercise.getName(), exercise.getTrainings())) {
-            throw new RuntimeException("exercise already exists");
-        }
-        this.exerciseRepository.save(exercise);
-    }
+//    public void addExercise(Exercise exercise) {
+//        if (exerciseRepository.existsByNameAndTraining(exercise.getName(), exercise.getTraining())) {
+//            throw new RuntimeException("exercise already exists");
+//        }
+//        this.exerciseRepository.save(exercise);
+//    }
 
     public List<Exercise> getExercisesInTraining(Long trainingId) {
-        return exerciseRepository.findByTrainingsId(trainingId);
+        return exerciseRepository.findByTrainingId(trainingId);
     }
 
     public void createExerciseInTraining(Exercise exercise, Long trainingId) {
-        if (exerciseRepository.existsByNameAndTrainings(exercise.getName(), exercise.getTrainings())) {
-            throw new RuntimeException("exercise already exists in " + exercise.getTrainings());
+        if (exerciseRepository.existsByNameAndTraining(exercise.getName(), exercise.getTraining())) {
+            throw new RuntimeException("exercise already exists in " + exercise.getTraining());
         }
         this.exerciseRepository.save(exercise);
         trainingService.addExerciseToTraining(trainingId, exercise);

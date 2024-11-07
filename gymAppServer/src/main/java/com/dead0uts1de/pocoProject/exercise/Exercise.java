@@ -5,9 +5,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Entity
 @Table
 @NoArgsConstructor
@@ -30,15 +27,16 @@ public class Exercise {
     @Setter
     private Integer reps;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "training_id")
     @JsonIgnore
-    @ManyToMany(mappedBy = "includedExercises", fetch = FetchType.EAGER)
-    private List<Training> trainings;
+    @Setter
+    private Training training;
 
     public Exercise(String name, Float weight, Integer sets, Integer reps) {
         this.name = name;
         this.weight = weight;
         this.sets = sets;
         this.reps = reps;
-        this.trainings = new ArrayList<>();
     }
 }
