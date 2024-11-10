@@ -33,7 +33,7 @@ public class ExerciseService {
     }
 
     public void createExerciseInTraining(Exercise exercise, Long trainingId) {
-        if (exerciseRepository.existsByNameAndTraining(exercise.getName(), exercise.getTraining())) {
+        if (exerciseRepository.existsByNameAndTrainingId(exercise.getName(), trainingId)) {
             throw new RuntimeException("exercise already exists in " + exercise.getTraining());
         }
         this.exerciseRepository.save(exercise);

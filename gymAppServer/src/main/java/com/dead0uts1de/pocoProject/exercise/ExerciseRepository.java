@@ -1,6 +1,5 @@
 package com.dead0uts1de.pocoProject.exercise;
 
-import com.dead0uts1de.pocoProject.training.Training;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Repository;
@@ -18,7 +17,7 @@ public interface ExerciseRepository extends JpaRepository<Exercise, Long> {
     @NonNull
     List<Exercise> findAll();
 
-    boolean existsByNameAndTraining(String name, Training training);
+    boolean existsByNameAndTrainingId(String name, Long trainingId);
 
     @NonNull
     List<Exercise> findByTrainingId(Long trainingId);

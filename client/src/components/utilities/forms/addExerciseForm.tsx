@@ -57,6 +57,7 @@ export function AddExerciseForm({ trainingId, onSuccess }: Props) {
 		// };
 		console.log(values);
 		try {
+			console.log(`Training id: ${trainingId}`);
 			const response = await fetch(`${POST_URL}/${trainingId}`, {
 				method: "POST",
 				headers: {

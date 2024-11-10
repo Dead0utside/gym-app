@@ -54,7 +54,6 @@ public class ExerciseController {
     @PostMapping(path = "add-to-training/{trainingId}")
     public ResponseEntity<String> createExerciseInTraining(@RequestBody Exercise exercise, @PathVariable(name = "trainingId") Long trainingId) {
         try {
-//            System.out.println("success");
             exerciseService.createExerciseInTraining(exercise, trainingId);
         } catch (RuntimeException e) {
             System.out.println(e.getMessage());
