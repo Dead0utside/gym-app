@@ -23,7 +23,7 @@ const AddExerciseDialog = ({ trainingId }: Props) => {
 	return (
 		<Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
 			{trainingId > 0 && <DialogTrigger asChild>
-				<Button variant="ghost" className="m-5 p-3">
+				<Button variant="ghost" className="m-5 p-3 flex flex-row">
 					<Plus />
 				</Button>
 			</DialogTrigger>}

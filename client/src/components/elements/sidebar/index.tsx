@@ -31,7 +31,9 @@ export function AppSidebar({ setWorkspaceContent }: Props) {
 	useEffect(() => {
 		const fetchTrainings = async () => {
 			const fetchResult = await fetch(`${GET_URL}`);
-			return (await fetchResult.json()) as Array<Training>;
+			const fetchJson = await  fetchResult.json() as Array<Training>;
+			// console.log(fetchJson[0]);
+			return (fetchJson) as Array<Training>;
 		};
 
 		fetchTrainings().then(response => setTrainings(response));
@@ -47,7 +49,7 @@ export function AppSidebar({ setWorkspaceContent }: Props) {
 		<Sidebar>
 			<SidebarHeader className={`flex-row pt-5`}>
 				<ModeToggle />
-				<h1 className="mx-auto"> Gym app </h1>
+				<h1 className="mx-auto"> GymSync </h1>
 				{isMobile && <SidebarTrigger />}
 			</SidebarHeader>
 			<SidebarContent>
