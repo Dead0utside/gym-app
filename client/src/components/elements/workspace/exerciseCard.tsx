@@ -7,16 +7,54 @@ import {
 	CardTitle,
 } from "@/components/ui/card.tsx";
 import { Separator } from "@/components/ui/separator.tsx";
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuTrigger
+} from "@/components/ui/dropdown-menu.tsx";
+import { MoreVertical } from "lucide-react";
+import { Button } from "@/components/ui/button.tsx";
+
+const DELETE_URL = "http://localhost:8080/api/v1/exercise/delete";
 
 type Props = {
 	exercise: Exercise;
 };
 
 const ExerciseCard = ({ exercise }: Props) => {
+	async function deleteExercise(exerciseId: number){
+		fetch(`${DELETE_URL}/${exerciseId}`, {
+			method: "DELETE",
+		}).then(response => console.log(response));
+	}
+
 	return (
 		<Card className={`my-5 mx-5 md:mx-auto px-5`}>
-			<CardHeader>
-				<CardTitle className={`w-4/5`}>{exercise.name}</CardTitle>
+			<CardHeader className="px-2">
+				<div className="flex justify-between items-center">
+					<CardTitle>{exercise.name}</CardTitle>
+					<DropdownMenu>
+						<DropdownMenuTrigger className="">
+							<MoreVertical />
+						</DropdownMenuTrigger>
+						<DropdownMenuContent
+							side="right"
+							align="start"
+						>
+							<DropdownMenuItem className="p-0">
+								<Button className="mx-auto" variant="ghost">
+									Rename
+								</Button>
+							</DropdownMenuItem>
+							<DropdownMenuItem className="p-0">
+								<Button className="mx-auto" variant="ghost" onClick={() => deleteExercise(exercise.id)}>
+									Delete
+								</Button>
+							</DropdownMenuItem>
+						</DropdownMenuContent>
+					</DropdownMenu>
+				</div>
 			</CardHeader>
 			<Separator />
 			<CardContent className={`mt-5`}>

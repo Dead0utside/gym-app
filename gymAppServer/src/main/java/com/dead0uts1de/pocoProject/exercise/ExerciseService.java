@@ -39,4 +39,8 @@ public class ExerciseService {
         this.exerciseRepository.save(exercise);
         trainingService.addExerciseToTraining(trainingId, exercise);
     }
+
+    public void deleteExerciseByID(Long id) {
+        exerciseRepository.deleteById(id);
+    }
 }

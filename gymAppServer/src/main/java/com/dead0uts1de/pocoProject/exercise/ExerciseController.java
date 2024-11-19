@@ -61,4 +61,10 @@ public class ExerciseController {
         }
         return new ResponseEntity<>("Add exercise", HttpStatus.OK);
     }
+
+    @DeleteMapping(path = "/delete/{exerciseId}")
+    public ResponseEntity<String> deleteExerciseById(@PathVariable(name = "exerciseId") Long id) {
+        exerciseService.deleteExerciseByID(id);
+        return new ResponseEntity<>("Training deleted", headers, HttpStatus.OK);
+    }
 }

@@ -21,4 +21,7 @@ public interface ExerciseRepository extends JpaRepository<Exercise, Long> {
 
     @NonNull
     List<Exercise> findByTrainingId(Long trainingId);
+
+    @Override
+    void deleteById(@NonNull Long id);
 }
